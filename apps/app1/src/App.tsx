@@ -1,5 +1,14 @@
+import MailList from "./components/MailList";
+import ShadowDOM from "./components/ShadowDOM";
+
 function App() {
-  return <div className="App">app1</div>;
+  return (
+    <div>
+      <ShadowDOM>
+        <MailList />
+      </ShadowDOM>
+    </div>
+  );
 }
 
 export default App;
