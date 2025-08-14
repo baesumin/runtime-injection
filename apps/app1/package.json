@@ -20,7 +20,9 @@
   },
   "scripts": {
     "dev": "react-app-rewired start",
-    "build": "react-app-rewired build"
+    "build": "react-app-rewired build",
+    "docker:build": "pnpm build && docker build -t app1 .",
+    "docker:run": "docker run -p 7001:7001 app1"
   },
   "eslintConfig": {
     "extends": [

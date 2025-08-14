@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     webpack: config => {
-        // output 라이브러리 설정
+        config.output.publicPath = 'http://localhost:7001/'
         config.output.library = {
             type: 'umd',
             name: 'app1',
