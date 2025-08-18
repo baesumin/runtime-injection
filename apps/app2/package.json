@@ -19,7 +19,9 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "docker:build": "pnpm build && docker build -t app2 .",
+    "docker:run": "docker run -p 7002:7002 app2"
   },
   "eslintConfig": {
     "extends": [

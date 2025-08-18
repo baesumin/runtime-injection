@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import indexStyle from "./index.css";
 import ShadowDOM from "./components/ShadowDOM";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const App = lazy(() => import("./App"));
 
@@ -10,7 +12,10 @@ const render = (container: HTMLElement, component: React.ReactNode) => {
   const tree = (
     <React.StrictMode>
       <ShadowDOM>
-        <Suspense fallback="loading...">{component}</Suspense>
+        <style>{indexStyle}</style>
+        <Provider store={store}>
+          <Suspense fallback="loading...">{component}</Suspense>
+        </Provider>
       </ShadowDOM>
     </React.StrictMode>
   );
