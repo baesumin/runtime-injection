@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     webpack: config => {
+        config.output.filename = 'main.js'
         config.output.publicPath = 'http://localhost:7002/'
         config.output.library = {
             type: 'umd',

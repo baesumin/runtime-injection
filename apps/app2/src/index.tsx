@@ -4,6 +4,7 @@ import indexStyle from "./index.css";
 import ShadowDOM from "./components/ShadowDOM";
 
 const App = lazy(() => import("./App"));
+const ShoppingList = lazy(() => import("./components/ShoppingList"));
 
 const render = (container: HTMLElement, component: React.ReactNode) => {
   const root = ReactDOM.createRoot(container);
@@ -21,5 +22,8 @@ const render = (container: HTMLElement, component: React.ReactNode) => {
 export default {
   App: (container: HTMLElement) => {
     render(container, <App />);
+  },
+  ShoppingList: (container: HTMLElement) => {
+    render(container, <ShoppingList />);
   },
 };
