@@ -1,14 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface MicroAppProps {
   url: string;
   appName: string;
   componentName: string;
+  props?: Record<string, any>;
   mainJsName?: string;
 }
 
 export interface MicroApp {
   default: Record<
     string,
-    (container: HTMLElement, props?: Record<string, any>) => void
+    (container: HTMLElement, props?: Record<string, any>) => () => void
   >;
 }
 
@@ -16,7 +18,7 @@ export const loadScript = async ({
   url,
   appName,
   mainJsName = "main.js",
-}: Omit<MicroAppProps, "componentName">): Promise<MicroApp> => {
+}: Omit<MicroAppProps, "componentName" | "props">): Promise<MicroApp> => {
   const microApp = window[`${appName}`];
   if (microApp) {
     return Promise.resolve(microApp);

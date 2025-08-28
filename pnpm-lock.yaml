@@ -26,6 +26,9 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^2.8.2
         version: 2.8.2(react-redux@9.2.0(@types/react@19.1.10)(react@19.1.1)(redux@5.0.1))(react@19.1.1)
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@testing-library/dom':
         specifier: ^10.4.1
         version: 10.4.1
@@ -90,6 +93,9 @@ importers:
 
   apps/app2:
     dependencies:
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@testing-library/dom':
         specifier: ^10.4.1
         version: 10.4.1

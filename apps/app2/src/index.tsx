@@ -17,14 +17,18 @@ const render = (container: HTMLElement, component: React.ReactNode) => {
     </React.StrictMode>
   );
   root.render(tree);
+
+  return () => {
+    root.unmount();
+  };
 };
 
 export default {
   App: (container: HTMLElement, props?: Record<string, any>) => {
     const { basename = "" } = props ?? {};
-    render(container, <App basename={basename} />);
+    return render(container, <App basename={basename} />);
   },
   ShoppingList: (container: HTMLElement) => {
-    render(container, <ShoppingList />);
+    return render(container, <ShoppingList />);
   },
 };

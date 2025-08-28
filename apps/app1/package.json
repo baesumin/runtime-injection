@@ -21,7 +21,8 @@
     "react-scripts": "5.0.1",
     "react-shadow": "^20.6.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@repo/ui": "workspace:*"
   },
   "scripts": {
     "dev": "react-app-rewired start",
