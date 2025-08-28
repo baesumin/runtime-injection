@@ -1,13 +1,21 @@
-import Button from "./components/Button";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ShoppingList from "./components/ShoppingList";
+import MailList from "./components/MailList";
+import Header from "./components/Header";
 
-function App() {
+interface AppProps {
+  basename: string;
+}
+
+function App({ basename }: AppProps) {
   return (
-    <div>
-      <Button>확인</Button>
-      <Button buttonType="cancel">취소</Button>
-      <ShoppingList />
-    </div>
+    <BrowserRouter basename={basename}>
+      <Header />
+      <Routes>
+        <Route path="/mailList" Component={MailList}></Route>
+        <Route path="/shoppingList" Component={ShoppingList}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

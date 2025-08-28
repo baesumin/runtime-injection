@@ -20,8 +20,9 @@ const render = (container: HTMLElement, component: React.ReactNode) => {
 };
 
 export default {
-  App: (container: HTMLElement) => {
-    render(container, <App />);
+  App: (container: HTMLElement, props?: Record<string, any>) => {
+    const { basename = "" } = props ?? {};
+    render(container, <App basename={basename} />);
   },
   ShoppingList: (container: HTMLElement) => {
     render(container, <ShoppingList />);

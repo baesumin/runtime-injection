@@ -6,7 +6,10 @@ export interface MicroAppProps {
 }
 
 export interface MicroApp {
-  default: Record<string, (container: HTMLElement) => void>;
+  default: Record<
+    string,
+    (container: HTMLElement, props?: Record<string, any>) => void
+  >;
 }
 
 export const loadScript = async ({
@@ -37,11 +40,13 @@ export const loadScript = async ({
 
       document.head.append(script);
     } catch (error) {
-      reject(new Error(`${appName} loading 오류`));
+      reject(new Error(`${appName} loading 오류: ${error}`));
     }
   });
 };
 
 declare global {
-  interface Window extends Record<string, MicroAppProps | undefined> {}
+  interface Window {
+    [key: string]: MicroApp | undefined;
+  }
 }
